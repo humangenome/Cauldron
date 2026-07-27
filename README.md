@@ -13,9 +13,9 @@
 
 # Cauldron
 
-Cauldron gives **Witchspire** dedicated, always-on multiplayer worlds. A host runs the Cauldron server package next to Witchspire on a Windows box, players join through the Cauldron desktop app with a single join code, and the world stays on the server with snapshots, admin tools, server query, and a mod kit. No friend-join lobby, no host-must-be-online requirement, no second player needed to keep the world alive.
+Cauldron gives **Witchspire** dedicated, always-on multiplayer worlds. A host runs the Cauldron server package next to Witchspire on a Windows box, players join through the Cauldron desktop app by server address, and the world stays on the server with snapshots, admin tools, server query, and a mod kit. No friend-join lobby, no host-must-be-online requirement, no second player needed to keep the world alive.
 
-A Cauldron server stands up a headless Witchspire host and publishes it as a joinable session. The Cauldron app resolves the server's join code to that exact session and connects the player straight into the hosted world. Stock Witchspire cannot join a Cauldron server directly — every player runs the Cauldron app, which ships the client mod that performs the join.
+A Cauldron server stands up a headless Witchspire host as an ordinary Unreal listen server on a real UDP port. The Cauldron app connects the player straight to that address and into the hosted world. Stock Witchspire cannot join a Cauldron server directly — every player runs the Cauldron app, which ships the client mod that performs the join.
 
 <p align="center">
   <img src="docs/img/launcher.png" alt="Cauldron launcher showing a Witchspire server" width="860">
@@ -23,8 +23,8 @@ A Cauldron server stands up a headless Witchspire host and publishes it as a joi
 
 ## Features
 
-### Join by code
-Add a server's join code once, pick your character, and connect straight into the hosted world from the launcher — no lobby invite, no friends list.
+### Join by address
+Add a server's `ip:port` once, pick your character, and connect straight into the hosted world from the launcher — no lobby invite, no friends list.
 
 ### Server-side worlds
 The world lives on the host machine. The server keeps running after a player leaves, and save snapshots give admins a recovery point before major changes.
@@ -42,38 +42,37 @@ CauldronServer exposes Source RCON on the server's RCON port for commands like `
 CauldronServer answers Source A2S query so server lists, monitoring tools, and bots can read status and player counts.
 
 ### Mods
-The host runs the `cauldron_host` overlay mod, which stands up the joinable session and applies the headless-host fixes. The Cauldron app ships the `CauldronConnect` client mod that performs the join. Self-hosters can add their own AngelScript mods to the host.
+The host runs the `cauldron_host` AngelScript mod, which opens the world as a listen server and applies the headless-host fixes. The Cauldron app ships the `CauldronConnect` client mod that performs the join. Self-hosters can add their own AngelScript mods to the host.
 
 ## Install
 
 ### Managed hosting
-The shortest path is [SurvivalServers.com Witchspire hosting](https://www.survivalservers.com/services/game_servers/witchspire/?utm_source=github&utm_medium=readme_install&utm_campaign=cauldron). Cauldron is already installed, the server is configured, and the panel shows the join code plus a one-click Cauldron setup link for players.
+The shortest path is [SurvivalServers.com Witchspire hosting](https://www.survivalservers.com/services/game_servers/witchspire/?utm_source=github&utm_medium=readme_install&utm_campaign=cauldron). Cauldron is already installed, the server is configured, and the panel shows the server address plus a one-click Cauldron setup link for players.
 
 ### Players
 1. Download `CauldronSetup-<version>.exe` from the [latest release](https://github.com/HumanGenome/Cauldron/releases/latest).
 2. Run the installer. Windows SmartScreen may warn because the installer is not code-signed yet; choose **More info** then **Run anyway**.
-3. Open Cauldron, add the server's join code, select or create a character, and click **Connect**.
+3. Open Cauldron, add the server's address as `ip:port`, select or create a character, and click **Connect**.
 
 Cauldron checks for launcher updates automatically on launch and while it is running.
 
 ### Self-hosted servers
-1. Download `Cauldron-Server-Windows-x64-v<version>.zip` from the [latest release](https://github.com/HumanGenome/Cauldron/releases/latest). It is self-contained — it includes the supervisor (`CauldronServer\`), the host overlay mods, and the host auth/launch helpers.
+1. Download `Cauldron-Server-Windows-x64-v<version>.zip` from the [latest CauldronServer release](https://github.com/HumanGenome/CauldronServer/releases/latest). It is self-contained — it includes the supervisor (`CauldronServer\`), the host mod, and the host launch helpers.
 2. Install the Witchspire dedicated files (SteamCMD app `2679100`) into the folder set in `CauldronServer\appsettings.json`. CauldronServer launches the game from that folder; it does not ship the game.
 3. Edit `CauldronServer\appsettings.json` (server name, ports, `RconPassword`).
-4. Open the query UDP port, RCON TCP port, and admin HTTP TCP port. Joins ride the game's session transport, so there is no gameplay UDP port to forward.
+4. Forward and allow four ports: the **gameplay UDP port** players connect to, the query UDP port, the RCON TCP port, and the admin HTTP TCP port. The gameplay port is mandatory — joins are ordinary Unreal UDP traffic straight to the host.
 5. Run `CauldronServer\CauldronServer.exe`.
 
 Full server setup, settings, source-query examples, RCON commands, and the runtime boot recipe live in [HumanGenome/CauldronServer](https://github.com/HumanGenome/CauldronServer).
 
 ## Releases
 
-The public release page is intentionally simple:
+Releases are split across the two public repos:
 
-- `CauldronSetup-<version>.exe` — installer for players
-- `Cauldron-Server-Windows-x64-v<version>.zip` — server package for hosts
-- `checksums.txt` — hashes for the release assets
+- [HumanGenome/Cauldron](https://github.com/HumanGenome/Cauldron/releases/latest) — the player side: `CauldronSetup-<version>.exe`, `CauldronSetup-latest.exe`, `Cauldron-Launcher-Windows-x64-v<version>.zip`, `checksums-launcher.txt`
+- [HumanGenome/CauldronServer](https://github.com/HumanGenome/CauldronServer/releases/latest) — the host side: `Cauldron-Server-Windows-x64-v<version>.zip`, `checksums.txt`
 
-Source archives are generated by GitHub automatically for tags.
+Both repos share the same version line, so a given tag means the same build on either side. Source archives are generated by GitHub automatically for tags.
 
 ## Source
 
