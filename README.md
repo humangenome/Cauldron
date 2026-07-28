@@ -57,7 +57,9 @@ The shortest path is [SurvivalServers.com Witchspire hosting](https://www.surviv
 Cauldron checks for launcher updates automatically on launch and while it is running.
 
 ### Self-hosted servers
-1. Download `Cauldron-Server-Windows-x64-v<version>.zip` from the [latest CauldronServer release](https://github.com/HumanGenome/CauldronServer/releases/latest). It is self-contained — it includes the supervisor (`CauldronServer\`), the host mod, and the host launch helpers.
+**Use v0.1.13 or later.** Releases up to v0.1.12 published the supervisor build on its own: the files unpack flat, there is no `CauldronServer\` folder and no host mod, so the steps below could not be followed and a server started from those files never opened a world anyone could join. Those release pages are annotated and their archives were left as they are.
+
+1. Download `Cauldron-Server-Windows-x64-v<version>.zip` from the [latest CauldronServer release](https://github.com/HumanGenome/CauldronServer/releases/latest). It is self-contained — it unpacks as `CauldronServer\` (the supervisor plus the `angelscript-mods\cauldron_host` host mod), `engine-ini\`, `steam_appid.txt` and `host-instance.ps1`.
 2. Install the Witchspire dedicated files (SteamCMD app `2679100`) into the folder set in `CauldronServer\appsettings.json`. CauldronServer launches the game from that folder; it does not ship the game.
 3. Edit `CauldronServer\appsettings.json` (server name, ports, `RconPassword`).
 4. Forward and allow four ports: the **gameplay UDP port** players connect to, the query UDP port, the RCON TCP port, and the admin HTTP TCP port. The gameplay port is mandatory — joins are ordinary Unreal UDP traffic straight to the host.
