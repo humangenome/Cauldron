@@ -47,7 +47,7 @@ Starting Witchspire from Steam runs the normal game. From v0.1.16 the app takes 
 
 ## Install
 
-### Managed hosting
+### Rent a server
 [SurvivalServers.com Witchspire server hosting](https://www.survivalservers.com/services/game_servers/witchspire/?utm_source=github&utm_medium=readme_install&utm_campaign=cauldron) comes with Cauldron installed and the ports open. The control panel has an Open in Cauldron button that adds the server to the app.
 
 ### Players
