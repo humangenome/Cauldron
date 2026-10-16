@@ -56,7 +56,7 @@ Starting Witchspire from Steam runs the normal game. From v0.1.16 the app takes 
 3. Open Cauldron, add the server address, click Connect.
 
 ### Self-hosted servers
-The supervisor, its ports and the RCON commands are in [CauldronServer](https://github.com/HumanGenome/CauldronServer). Self-hosting is not turnkey yet: the server package does not put the host mod into your Witchspire install or set its port, so a server started from it alone opens no world. CauldronServer's README lists what it leaves out. You need a Windows machine and Witchspire's game files on it from your own Steam copy.
+Run the server on your own Windows machine with the package from [CauldronServer](https://github.com/HumanGenome/CauldronServer/releases/latest) (v0.1.17 or later) and Witchspire's game files from your own Steam copy. The [setup steps](https://github.com/HumanGenome/CauldronServer#self-hosting), ports and RCON commands are in CauldronServer's README.
 
 ## Releases
 
