@@ -22,24 +22,17 @@ Every player must install Cauldron to join a Cauldron server. Stock Witchspire c
 ## Features
 
 ### 🧭 Join by IP
-Type the server's IP and port into the app once, then click Connect. The app puts its small join mod into your game, starts Witchspire and joins the server as soon as the main menu has loaded. Each saved server shows whether it is online, who is on it and your ping, and the list refreshes every 30 seconds. A `cauldron://` link from your host's control panel adds a server in one click.
+Type the server's IP and port into the app once, then click Connect. The app puts its small join mod into your game, starts Witchspire and joins the server as soon as the main menu has loaded. Each saved server shows whether it is online, how many players are on it and your ping, and the list refreshes every 30 seconds. A `cauldron://` link from your host's control panel adds a server in one click.
 
 <p align="center">
-  <img src="docs/img/app-v0.1.20-servers.png" alt="The Cauldron app with two saved Witchspire servers online, the players on the selected one, ping and the Connect button" width="860">
+  <img src="docs/img/app-v0.1.18-servers.png" alt="The Cauldron app with two saved Witchspire servers, both online, with their player counts, ping and the Connect button" width="860">
 </p>
 
 ### 🖥️ Admin console
-The Console tab connects to the server's RCON port with its admin password: check the server, see who is on and for how long, and take or list world snapshots without leaving the app.
+The Console tab connects to the server's RCON port with its admin password: check the server, see how many players are on and take a world snapshot without leaving the app. A self-hosted CauldronServer also snapshots the world by itself when Witchspire saves, at most once every 15 minutes, and keeps each snapshot for 30 days.
 
 <p align="center">
-  <img src="docs/img/app-v0.1.20-console.png" alt="The Cauldron app's Console tab connected to a server, after the status, players and save list commands" width="860">
-</p>
-
-### 💾 World backups
-The app's World window lists the server's snapshots, downloads one, restores an earlier world, uploads a Witchspire save from your PC, or brings the latest snapshot over from another of your servers. Restore and import stop the world while the files are swapped, and the world that was running is kept as a snapshot first. A self-hosted CauldronServer also snapshots the world by itself when Witchspire saves, at most once every 15 minutes, and keeps each snapshot for 30 days.
-
-<p align="center">
-  <img src="docs/img/app-v0.1.20-world.png" alt="The Cauldron World window: the server's snapshots with date and size, Refresh, Download and Restore, Import a save, and Migrate from another server" width="620">
+  <img src="docs/img/app-v0.1.18-console.png" alt="The Cauldron app's Console tab connected to a server, after the help, save snapshot and save list commands" width="860">
 </p>
 
 ## Install
@@ -82,7 +75,7 @@ While you play on a Cauldron server, the app adds a small join mod under Witchsp
 On the server, with the world.
 
 ### Can a world move between servers?
-Yes. In the app's World window on the new server, pick the old one under **Migrate from another server** and click **Migrate latest snapshot**. By hand: stop both servers and copy the world's `Saved\SaveGames` folder from one to the other.
+Yes. Stop both servers and copy the world's `Saved\SaveGames` folder from one to the other. On a rented server, use your host's file manager.
 
 ### Does the app update itself?
 Yes. It downloads new versions in the background and installs them by itself. Every update is signed, and the app refuses one that is not.
