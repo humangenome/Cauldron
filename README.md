@@ -1,13 +1,14 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/img/cauldron-lockup-dark.png">
-    <img src="docs/img/cauldron-lockup-light.png" alt="Cauldron" width="480">
+    <source media="(prefers-color-scheme: dark)" srcset="docs/img/cauldron-logo-dark.png">
+    <img src="docs/img/cauldron-logo-light.png" alt="Cauldron" width="400">
   </picture>
 </p>
 
 <p align="center">
   <a href="#install"><img src="https://img.shields.io/badge/Platform-Windows_10%2F11%2FServer-blue.svg" alt="Platform"></a>
   <a href="https://store.steampowered.com/app/2679100/"><img src="https://img.shields.io/badge/Game-Witchspire-darkgreen.svg" alt="Game"></a>
+  <a href="#how-many-players-can-join"><img src="https://img.shields.io/badge/Players-up_to_6-brightgreen.svg" alt="Players"></a>
   <a href="https://github.com/HumanGenome/CauldronServer"><img src="https://img.shields.io/badge/Server_Source-CauldronServer-444.svg" alt="Server Source"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-lightgrey.svg" alt="License"></a>
 </p>
@@ -18,32 +19,21 @@ Witchspire has no dedicated server. Its online co-op is hosted from one player's
 
 Every player must install Cauldron to join a Cauldron server. Stock Witchspire cannot connect to a Cauldron server directly.
 
-<p align="center">
-  <img src="docs/img/launcher.png" alt="The Cauldron app: a saved Witchspire server with its status, player count and the Connect button" width="860">
-</p>
-
 ## Features
 
-### 🧭 Join by address
-Add the server's `ip:port` in the app and click Connect. The app puts its join mod into your game, starts Witchspire and joins the server once the menu has loaded. The server list shows whether each server is up, how many players are on it and your ping. A `cauldron://` link from a hosting panel adds a server in one click.
+### 🧭 Join by IP
+Type the server's IP and port into the app once, then click Connect. The app puts its small join mod into your game, starts Witchspire and joins the server as soon as the main menu has loaded. Each saved server shows whether it is online, how many players are on it and your ping, and the list refreshes every 30 seconds. A `cauldron://` link from your host's control panel adds a server in one click.
 
-### 👻 No idle host character
-The server's own character is hidden, so players never find a motionless witch standing at spawn. Every character in the world belongs to a player, and new players go through Witchspire's own character creation on their first join.
+<p align="center">
+  <img src="docs/img/app-v0.1.18-servers.png" alt="The Cauldron app with two saved Witchspire servers, both online, with their player counts, ping and the Connect button" width="860">
+</p>
 
-### 🔁 World backups
-The app's World window takes a snapshot of the world, restores an earlier one, downloads a snapshot to your PC, imports a save from your own Witchspire, and copies the latest snapshot over from another of your servers. It uses the server's admin password.
+### 🖥️ Admin console
+The Console tab connects to the server's RCON port with its admin password: check the server, see how many players are on and take a world snapshot without leaving the app. A self-hosted CauldronServer also snapshots the world by itself when Witchspire saves, at most once every 15 minutes, and keeps each snapshot for 30 days.
 
-### 🖥️ Console in the app
-The Console tab connects to the server's RCON port with the admin password: server status, the player list and snapshots, without leaving the app.
-
-### 📡 Server query
-CauldronServer answers Source A2S with the server name, the map and the live player count, so server browsers, monitoring tools and bots can read it.
-
-### 🧩 Host mods
-The host runs the `cauldron_host` AngelScript mod, which opens the world for players, saves it on a timer and hides the host's own character. Other AngelScript mods in the host's `Hercules\Script\Mods` folder load with it; one that fails to compile stops the world from loading.
-
-### 🔄 Plain game afterwards
-Starting Witchspire from Steam runs the normal game. From v0.1.16 the app takes its join mod and network settings back out when the game closes. The app updates itself, and every update is signed.
+<p align="center">
+  <img src="docs/img/app-v0.1.18-console.png" alt="The Cauldron app's Console tab connected to a server, after the help, save snapshot and save list commands" width="860">
+</p>
 
 ## Install
 
@@ -52,11 +42,11 @@ Starting Witchspire from Steam runs the normal game. From v0.1.16 the app takes 
 
 ### Players
 1. Download `CauldronSetup-latest.exe` from the [latest release](https://github.com/HumanGenome/Cauldron/releases/latest/download/CauldronSetup-latest.exe).
-2. Run it. Windows SmartScreen may warn because the installer is not code-signed yet; choose **More info**, then **Run anyway**.
-3. Open Cauldron, add the server address, click Connect.
+2. Run it. The installer is not code-signed, so Windows SmartScreen may warn; choose **More info**, then **Run anyway**.
+3. Open Cauldron, add the server's IP and port, and click Connect.
 
 ### Self-hosted servers
-Run the server on your own Windows machine with the package from [CauldronServer](https://github.com/HumanGenome/CauldronServer/releases/latest) (v0.1.17 or later) and Witchspire's game files from your own Steam copy. The [setup steps](https://github.com/HumanGenome/CauldronServer#self-hosting), ports and RCON commands are in CauldronServer's README.
+Run the server on your own Windows machine with the package from [CauldronServer](https://github.com/HumanGenome/CauldronServer/releases/latest) (v0.1.17 or later) and Witchspire's game files from your own Steam copy. CauldronServer answers Source RCON and A2S queries, so server browsers, monitoring tools and bots can read the server's name and player count. The [setup steps](https://github.com/HumanGenome/CauldronServer#self-hosting), ports and RCON commands are in CauldronServer's README.
 
 ## Releases
 
@@ -70,16 +60,25 @@ This repo publishes the player side: `CauldronSetup-<version>.exe`, a `CauldronS
 ## FAQ
 
 ### Does everyone need the app?
-Yes. The game cannot reach a Cauldron server without it.
+Yes. Witchspire on its own cannot connect to a Cauldron server, so every player installs the app first.
+
+### How many players can join?
+Up to six, the limit Witchspire's own co-op is built for. The host sets the server's slot count.
+
+### Is there a host character standing in the world?
+No. The server's own character is hidden, so every witch you meet in the world is a player.
 
 ### Does it change my game?
-While you play on a Cauldron server, the app adds a small join mod under Witchspire's `Hercules\Script\Mods\Cauldron` folder and its network settings to Witchspire's `Engine.ini` in `%LOCALAPPDATA%\Hercules`. From v0.1.16 it removes both when the game closes and puts back an `Engine.ini` you already had. It also turns DLSS and frame generation off in Witchspire's graphics settings, because they crashed the game in a Cauldron world; switch them back on in the game for normal play.
+While you play on a Cauldron server, the app adds a small join mod under Witchspire's `Hercules\Script\Mods\Cauldron` folder and its network settings to Witchspire's `Engine.ini` in `%LOCALAPPDATA%\Hercules`. It removes both when the game closes and puts back an `Engine.ini` you already had, so starting Witchspire from Steam runs the normal game. It also turns DLSS and frame generation off in Witchspire's graphics settings, because they crashed the game in a Cauldron world; switch them back on in the game for normal play.
 
 ### Where is my character saved?
 On the server, with the world.
 
 ### Can a world move between servers?
-Yes. Download a snapshot from one server in the World window and import it on the other, or copy the latest snapshot over directly.
+Yes. Stop both servers and copy the world's `Saved\SaveGames` folder from one to the other. On a rented server, use your host's file manager.
+
+### Does the app update itself?
+Yes. It downloads new versions in the background and installs them by itself. Every update is signed, and the app refuses one that is not.
 
 ### Is Linux supported?
 No. The app and the server are Windows only.
