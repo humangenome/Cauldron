@@ -63,7 +63,7 @@ This repo publishes the player side: `CauldronSetup-<version>.exe`, a `CauldronS
 Yes. Witchspire on its own cannot connect to a Cauldron server, so every player installs the app first.
 
 ### How many players can join?
-Witchspire is made for one to six players, in Envar Games' own words on its [Steam page](https://store.steampowered.com/app/2679100/). The host sets the server's slot count.
+Up to six. Witchspire is made for one to six players, in Envar Games' own words on its [Steam page](https://store.steampowered.com/app/2679100/), and a Cauldron server has had six players in one world at once; the server's own hidden host does not take a place. The host sets the server's slot count.
 
 ### Is there a host character standing in the world?
 No. The server's own character is hidden, so every witch you meet in the world is a player.
