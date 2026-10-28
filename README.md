@@ -42,6 +42,9 @@ The app's World window lists the server's snapshots, downloads one, restores an 
   <img src="docs/img/app-v0.1.20-world.png" alt="The Cauldron World window: the server's snapshots with date and size, Refresh, Download and Restore, Import a save, and Migrate from another server" width="620">
 </p>
 
+### 💬 In-game chat
+In-game chat: press T to talk to everyone on the server. Needs a server running CauldronServer 0.1.22 or newer.
+
 ## Install
 
 ### Rent a server
