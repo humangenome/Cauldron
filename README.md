@@ -39,7 +39,7 @@ The Console tab runs RCON commands with the server's admin password: check the s
 Click World to download a backup, restore an earlier world, upload a Witchspire save from your PC, or copy the latest backup from another of your servers. The server backs up the world that was running first, then restarts with the new one. A CauldronServer you run yourself also backs up the world when Witchspire saves, at most once every 15 minutes, and keeps each backup for 30 days.
 
 <p align="center">
-  <img src="docs/img/app-v0.1.20-world.png" alt="The Cauldron World window: the server's snapshots with date and size, Refresh, Download and Restore, Import a save, and Migrate from another server" width="620">
+  <img src="docs/img/app-v0.1.20-world.png" alt="The Cauldron World window: the server's backups with date and size, Refresh, Download and Restore, Upload a save, and Copy a world from another server" width="620">
 </p>
 
 ### 💬 In-game chat
@@ -82,7 +82,7 @@ While you play on a Cauldron server, the app adds a small join mod under Witchsp
 On the server, with the world.
 
 ### Can a world move between servers?
-Yes. In the app's World window on the new server, pick the old one under **Migrate from another server** and click **Migrate latest snapshot**. By hand: stop both servers and copy the world's `Saved\SaveGames` folder from one to the other.
+Yes. Select the new server, click **World**, pick the old one under **Copy a world from another server** and click **Copy latest backup**. By hand: stop both servers and copy the world's `Saved\SaveGames` folder from one to the other.
 
 ### Does the app update itself?
 Yes. It downloads new versions in the background and installs them by itself. Every update is signed, and the app won't install one that isn't.
