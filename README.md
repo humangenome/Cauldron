@@ -25,7 +25,7 @@ Every player needs the Cauldron app to join.
 Add the server's IP and port once, then click Connect. Cauldron starts Witchspire and joins the server as soon as the main menu loads. Your server list shows if each server is online, how many players are on it and your ping, and refreshes every 30 seconds. A host's Open in Cauldron button adds the server in one click.
 
 <p align="center">
-  <img src="docs/img/app-v0.1.20-servers.png" alt="The Cauldron app with two saved Witchspire servers online, the players on the selected one, ping and the Connect button" width="860">
+  <img src="docs/img/app-v0.1.27-servers.png" alt="The Cauldron app with two saved Witchspire servers online, the players on the selected one, ping and the Connect button" width="860">
 </p>
 
 ### 🖥️ Server console
