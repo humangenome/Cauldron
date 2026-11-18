@@ -32,14 +32,14 @@ Add the server's IP and port once, then click Connect. Cauldron starts Witchspir
 The Console tab runs RCON commands with the server's admin password: check the server, see who's on and for how long, and make or list world backups.
 
 <p align="center">
-  <img src="docs/img/app-v0.1.20-console.png" alt="The Cauldron app's Console tab connected to a server, after the status, players and save list commands" width="860">
+  <img src="docs/img/app-v0.1.27-console.png" alt="The Cauldron app's Console tab connected to a server, after the status, players and save list commands" width="860">
 </p>
 
 ### 💾 World backups
 Click World to download a backup, restore an earlier world, upload a Witchspire save from your PC, or copy the latest backup from another of your servers. The server backs up the world that was running first, then restarts with the new one. A CauldronServer you run yourself also backs up the world when Witchspire saves, at most once every 15 minutes, and keeps each backup for 30 days.
 
 <p align="center">
-  <img src="docs/img/app-v0.1.20-world.png" alt="The Cauldron World window: the server's backups with date and size, Refresh, Download and Restore, Upload a save, and Copy a world from another server" width="620">
+  <img src="docs/img/app-v0.1.27-world.png" alt="The Cauldron World window: the server's backups with date and size, Refresh, Download and Restore, Upload a save, and Copy a world from another server" width="620">
 </p>
 
 ### 💬 In-game chat
