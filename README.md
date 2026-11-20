@@ -55,6 +55,8 @@ Press T to talk to everyone on the server. Needs CauldronServer 0.1.22 or newer.
 2. Run it. If Windows shows "Windows protected your PC", choose **More info**, then **Run anyway**.
 3. Open Cauldron, add the server's IP and port, and click Connect.
 
+If Windows says Smart App Control blocked the installer, wait a day or two for Windows to recognize the new version and run it again, or turn Smart App Control off in Windows Security under App & browser control.
+
 ### Host your own
 Run the server on your own Windows PC with [the server download](https://github.com/HumanGenome/CauldronServer/releases/latest) and a copy of Witchspire from your own Steam account. It shows up in server lists and takes RCON commands. The [setup steps](https://github.com/HumanGenome/CauldronServer#host-your-own), ports and commands are in CauldronServer's README.
 
