@@ -57,6 +57,8 @@ Press T to talk to everyone on the server. Needs CauldronServer 0.1.22 or newer.
 
 If Windows says Smart App Control blocked the installer, wait a day or two for Windows to recognize the new version and run it again, or turn Smart App Control off in Windows Security under App & browser control.
 
+If the app closes to update and then won't open, download the installer from our website and run it again.
+
 ### Host your own
 Run the server on your own Windows PC with [the server download](https://github.com/HumanGenome/CauldronServer/releases/latest) and a copy of Witchspire from your own Steam account. It shows up in server lists and takes RCON commands. The [setup steps](https://github.com/HumanGenome/CauldronServer#host-your-own), ports and commands are in CauldronServer's README.
 
